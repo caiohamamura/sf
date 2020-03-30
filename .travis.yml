@@ -1,17 +1,17 @@
+language: r
+
 jobs:
-  - os: linux
+  - r: release
+    os: linux
     dist: trusty
   - os: osx
-    env:
-      - BADGE=osx
-      - LD_LIBRARY_PATH=" /opt/local/lib:$LD_LIBRARY_PATH"
-      - CPATH="/opt/local/include:$CPATH"
+    r: release
+  - os: osx
+    r: oldrel
+  - os: osx
+    r: devel
+      
 
-language: r
-r:
-  - release
-  - oldrel # breaks on sf_0.7-2 not available
-  - devel
 
 addons:
   apt:
