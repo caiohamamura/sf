@@ -423,6 +423,9 @@ int main() {
 }
 _EOCONF]
   #AC_CHECK_LIB(proj,proj_context_create,,proj6ok=no)
+  AX_LIB_SQLITE3()
+  LIBS="${LIBS} ${SQLITE3_LDFLAGS}"
+
   AC_MSG_CHECKING(PROJ: checking whether PROJ and sqlite3 are available for linking:)
   ${CXX} ${CPPFLAGS} -o proj_conf_test proj_conf_test.cpp ${LIBS} -lsqlite3 2> errors.txt
   if test `echo $?` -ne 0 ; then
