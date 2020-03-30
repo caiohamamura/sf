@@ -22,11 +22,11 @@ addons:
   homebrew:
     packages:
       - ccache
-      - pkg-config
       - gdal
       - gsl
       - udunits
       - llvm
+      - pkg-config
 
 before_install:
 # Configure CCACHE
@@ -51,3 +51,5 @@ after_script:
   - cat ${PKGNAME}.Rcheck/00check.log
   - cat ${PKGNAME}.Rcheck/00install.out
 
+after_failure:
+ - cat errors.txt
